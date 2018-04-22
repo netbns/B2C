@@ -1,0 +1,64 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<mat-toolbar>
+   <button mat-raised-button routerLink="/">Toures Balón</button>
+  
+  <span class="example-spacer"></span>
+  <button *ngIf="!currentUser" mat-icon-button (click)="goToLogin()">
+    <mat-icon matTooltip="Sign in" [matTooltipPosition]="'below'">
+      <i class="fas fa-user"></i>
+    </mat-icon>
+  </button>
+  <button *ngIf="!currentUser" mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <button *ngIf="currentUser" mat-button [matMenuTriggerFor]="menu">
+    <mat-icon><i class="fas fa-user"></i></mat-icon> {{currentUser.names}}
+  </button>
+  <mat-menu #menu="matMenu">
+    <button *ngIf="currentUser" (click)="goToProfile()" mat-menu-item >
+      <mat-icon>
+        <i class="fas fa-user"></i>
+      </mat-icon>
+      <span>Profile</span>
+    </button>
+    <button mat-menu-item (click)="goToCart()">
+      <mat-icon>
+        <i class="fas fa-shopping-cart"></i>
+      </mat-icon>
+      <span>Shopping cart</span>
+    </button>
+    <button *ngIf="currentUser" mat-menu-item (click)="goToOrders()">
+      <mat-icon>
+        <i class="fas fa-parachute-box"></i>
+      </mat-icon>
+      <span>Mis órdenes</span>
+    </button>
+    <button *ngIf="currentUser" (click)="signOut()" mat-menu-item>
+      <mat-icon>
+        <i class="fas fa-sign-out-alt"></i>
+      </mat-icon>
+      <span>Sign out</span>
+    </button>
+  </mat-menu>
+
+</mat-toolbar>
+<mat-toolbar *ngIf="router.url!=='/search'">
+ <span class="example-spacer"></span>
+ <span class="example-spacer">
+   <mat-form-field >
+     <input matInput placeholder="Buscar" [value]="searchText" (input)="searchText = $event.target.value" (keyup.enter)="search()"/>
+   </mat-form-field>
+   <button *ngIf="showSearch" mat-icon-button (click)="search()">
+     <mat-icon>
+       <i class="fas fa-search"></i>
+     </mat-icon>
+   </button>
+ </span>
+
+ 
+
+
+</mat-toolbar>
+<simple-notifications></simple-notifications>
+
+<router-outlet></router-outlet>

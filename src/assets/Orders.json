@@ -1,0 +1,60 @@
+[
+	{
+		"id":1,
+		"orderDate": "10-04-2018 09:45:35",
+		"price":1234561,
+		"status":"PENDING",
+		"comments":"Tenga sus comentarios",
+		"client":1,
+		"items":[
+			{
+				"id":1,
+				"product":1,
+				"price":1234561,
+				"quantity":1,
+				"orderId":1
+			}
+		]
+	},
+	{
+		"id":2,
+		"orderDate": "10-04-2018 09:45:35",
+		"price":1234561,
+		"status":"PENDING",
+		"comments":"Tenga sus comentarios",
+		"client":1,
+		"items":[
+			{
+				"id":1,
+				"product":2,
+				"price":1234561,
+				"quantity":1,
+				"orderId":1
+			}
+		]
+	},
+	{
+		"id":3,
+		"orderDate": "10-04-2018 09:45:35",
+		"price":2469122,
+		"status":"PENDING",
+		"comments":"Tenga sus comentarios",
+		"client":1,
+		"items":[
+			{
+				"id":1,
+				"product":3,
+				"price":1234561,
+				"quantity":1,
+				"orderId":1
+			},
+			{
+				"id":2,
+				"product":5,
+				"price":1234561,
+				"quantity":1,
+				"orderId":1
+			}
+		]
+	}
+]

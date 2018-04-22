@@ -1,46 +1,27 @@
-----> Toures Balón
+# B2cFrontend
 
-Proyecto acádemico de la materia Proyecto de implementación centrada en arquitectura, de la especialización de Arquitectura Empresarial de Software, de la universidad Pontificia Universidad Javeriana - Bogotá.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.8.
 
-----> Caracteristicas
+## Development server
 
-    Busqueda de productos por nombre, mayor precio y menor precio
-    Busqueda por nombre de producto
-    Filtro de productos por categorias, rango de precios, disponibilidad y filtros personalizados.
-    Se adicionan productos al carrito de compra.
-    Ver los detalles de la compra administración del carrito de compra (Quitar productos si no se quiere comprar)
-    Diseño responsive para diferentes vistas de navegadores y dispositivos.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-----> Instalación
+## Code scaffolding
 
-    Clonar el proyecto (https://github.com/juanmaster31/TouresBalon.git)
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-    Se debe tener angular-cli instalado en el equipo, si no se tiene debe actualizar con la ultima versión de angular-cli. (npm install -g angular-cli)
+## Build
 
-    Instalar las dependencias del proyecto, ejecutar desde la carpeta principal del proyecto (TouresBalon) con el comando 'npm install'
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-    Para ejecutar el proyecto se debe ejecutar con el comando 'ng serve'
+## Running unit tests
 
-    Desde un explorador se ingresa por la siguiente ruta: localhost:4200
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-----> Adicionales
+## Running end-to-end tests
 
-El proyecto contiene angular-cli version 1.0.0-beta.15.
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-----> Tips para generación de Componentes y Servicios
+## Further help
 
-Para la creación de componentes se ejecuta desde la consola 'ng generate component component-nombre_componente'. Tambien se puede utilizar 'ng generate directive/pipe/service/class'.
-
-----> Build
-
-Se ejecuta 'ng build'.
-
-----> Ejecución de Pruebas Untarias
-
-Se ejecuta 'ng test' para ejecutar las pruebas unitarias, se utiliza por medio de Karma.
-
-----> Ejecutar Pruebas end-to-end
-
-Se ejecuta 'ng e2e' que ejecuta las pruebas end-to-end por medio de Protractor.
-
-Antes de ejecutar las pruebas, debe ejecutar el servicio de la apicación con el comando 'ng serve'.
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

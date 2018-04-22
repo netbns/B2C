@@ -1,0 +1,44 @@
+<br>
+<br>
+<div class="example-loading-shade" *ngIf="isLoadingResults">
+  <mat-spinner *ngIf="isLoadingResults" [color]="'primary'" [mode]="'indeterminate'"></mat-spinner>
+</div>
+<div class="example-spacer" style="width:30%;margin:auto">
+  <span>
+    <mat-form-field color="warn">
+      <input matInput placeholder="Buscar" [value]="searchText" (input)="searchText = $event.target.value" (keyup.enter)="search()"
+      />
+    </mat-form-field>
+    <button mat-icon-button (click)="search()">
+      <mat-icon>
+        <i class="fas fa-search"></i>
+      </mat-icon>
+    </button>
+  </span>
+</div>
+
+<div class="col-md-12">
+  <div class="card" *ngFor="let product of products">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card">
+            <img class="img-fluid" src="data:image/jpeg;base64,{{product.productoImagen}}">
+          </div>
+        </div>
+        <div class="col-md-9">
+          <h4 class="card-title">{{product.productoNombre}}</h4>
+          <!--Text-->
+          <p class="card-text">{{product.productoDescripcion}}</p>
+          <button (click)="viewProduct(product)" class="btn btn-primary waves-light" mdbRippleRadius>Ver detalle</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+
+</div>
+
+
+<mat-paginator [length]="resultsLength" [pageSize]="pageSize" [pageSizeOptions]=pageSizeOptions>
+</mat-paginator>

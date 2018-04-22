@@ -1,0 +1,43 @@
+<br>
+<br>
+<div style="width: 70%;margin: auto" *ngIf="currentUser">
+    <h1>Bienvenido! {{currentUser.names}}</h1>
+</div>
+<br>
+<br>
+<div style="width: 70%;margin: auto">
+    <mdb-carousel [isControls]="true" class="carousel slide carousel-fade" [animation]="'fade'">
+
+        <mdb-slide *ngFor="let camp of campaigns">
+            <div class="view hm-black-light">
+                <img class="d-block w-100" src="data:image/jpeg;base64,{{camp.campaingImagen}}" alt="First slide">
+                <div class="mask waves-light" mdbRippleRadius></div>
+            </div>
+            <div class="carousel-caption">
+                <h3 class="h3-responsive">{{camp.campaingNombre}}</h3>
+                <p>{{camp.campaingDescripcion}}</p>
+                <button (click)="viewProduct(camp.campaingProductos[0])" class="btn btn-primary waves-light" mdbRippleRadius>Ver producto</button>
+            </div>
+        </mdb-slide>
+
+
+    </mdb-carousel>
+    <br>
+    <br>
+    <h1>Top 5 de productos</h1>
+    <div class="row">
+
+        <div class="col-md-4" *ngFor="let product of products">
+            <br>
+            <div class="card">
+                <img class="img-fluid" src="data:image/jpeg;base64,{{product.productoImagen}}" alt="Card image cap">
+                <div class="card-body">
+                    <h4 class="card-title">{{product.productoNombre}}</h4>
+                    <p>{{product.productoDescripcion}}</p>
+                    <button (click)="viewProduct(product)" class="btn btn-primary waves-light" mdbRippleRadius>Ver producto</button>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>

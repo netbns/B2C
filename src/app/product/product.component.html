@@ -1,0 +1,97 @@
+<br>
+<div style="width: 80%;margin: auto">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{product.productoNombre}}</mat-card-title>
+      <mat-card-subtitle>{{product.productoDescripcion}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="data:image/jpeg;base64,{{product.productoImagen}}" alt="Product image">
+    <mat-card-content>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Información del espectáculo
+            </mat-panel-title>
+            <mat-panel-description>
+              {{product.espectaculo.espectaculoNombre}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <mat-form-field>
+            <input matInput placeholder="Descripción" [value]="product.espectaculo.espectaculoDescripcion" disabled>
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <input matInput placeholder="Precio" [value]="product.espectaculo.espectaculoCosto" disabled>
+          </mat-form-field>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Información del hospedaje
+            </mat-panel-title>
+            <mat-panel-description>
+              {{product.lodging.lodgingNombre}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-form-field>
+            <input matInput placeholder="Precio" [value]="product.lodging.lodgingCosto" disabled>
+          </mat-form-field>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Información del transporte
+            </mat-panel-title>
+            <mat-panel-description>
+              {{product.transporte.transporteNombre}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-form-field>
+            <input matInput placeholder="Descripción" [value]="product.transporte.transporteDescripcion" disabled>
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <input matInput placeholder="Fecha partida" [value]="product.productoDepartureDate" disabled>
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <input matInput placeholder="Fecha de llegada" [value]="product.productoArrivalDate" disabled>
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <input matInput placeholder="Ciudad de origen" [value]="product.ciudadOrigen.ciudadNombre" disabled>
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <input matInput placeholder="Ciudad de destino" [value]="product.ciudadDestino.ciudadNombre" disabled>
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <input matInput placeholder="Precio" [value]="product.transporte.transporteCosto" disabled>
+          </mat-form-field>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="addToCart()">
+        <mat-icon>
+          <i class="fas fa-shopping-cart"></i>
+        </mat-icon>
+        <span> Agregar al carrito
+        </span>
+      </button>
+      <button mat-button (click)="goToCart()" *ngIf="goCart">
+        <mat-icon>
+          <i class="fas fa-shopping-cart"></i>
+        </mat-icon>
+        <span> Ir al carrito
+        </span>
+      </button>
+      <button mat-button (click)="goBack()">Volver</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

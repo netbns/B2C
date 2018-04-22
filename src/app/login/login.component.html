@@ -1,0 +1,32 @@
+<br>
+<br>
+<div style="width: 60%;margin:auto">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>
+        <h2>Login</h2>
+      </mat-card-title>
+    </mat-card-header>
+    <form id="loginForm" name="loginForm" (ngSubmit)="loginForm.form.valid && doLogin()" #loginForm="ngForm">
+      <mat-card-content>
+        <div style="width: 70%;margin: auto">
+          <mat-form-field class="example-full-width">
+            <input id="user" name="user" matInput placeholder="Email" required [(ngModel)]="login.user">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input id="password" name="password" matInput type="password" [(ngModel)]="login.password" placeholder="Passsword" required>
+          </mat-form-field>
+        </div>
+
+      </mat-card-content>
+      <mat-card-actions>
+        <div style="width: 50%;margin: auto">
+          <button type="submit" class="btn btn-primary waves-light" mdbRippleRadius>Login</button>
+          <button type="button" (click)="goToRegister()" class="btn btn-secondary waves-light" mdbRippleRadius>Registrarse</button>
+          <button type="button" (click)="goToMain()" class="btn btn-secondary waves-light" mdbRippleRadius>Volver</button>
+        </div>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>

@@ -1,0 +1,105 @@
+<br>
+<br>
+<div style="width: 60%;margin:auto">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>
+        <h2>Perfil de usuario</h2>
+      </mat-card-title>
+    </mat-card-header>
+    <form id="registerForm" name="registerForm" (ngSubmit)="registerForm.form.valid && register()" #registerForm="ngForm">
+      <mat-card-content>
+        <div style="width: 70%;margin: auto">
+          <mat-card>
+            <mat-form-field class="example-full-width">
+              <input id="names" name="names" matInput placeholder="Nombres" required [(ngModel)]="client.names">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <input id="lastNames" name="lastNames" matInput placeholder="Apellidos" required [(ngModel)]="client.lastNames">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <input id="phoneNumber" name="phoneNumber" matInput placeholder="Teléfono" [(ngModel)]="client.phoneNumber">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-select placeholder="Tipo de tarjeta de crédito" [(value)]="client.creditCardType">
+                <mat-option value="MASTER_CARD">
+                  Master card
+                </mat-option>
+                <mat-option value="VISA">
+                  VISA
+                </mat-option>
+                <mat-option value="AMERICAN_EXPRESS">
+                  American express
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Número de tarjeta de crédito" [value]="client.creditCardNumber" (input)="client.creditCardNumber = $event.target.value">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <input id="email" name="email" matInput placeholder="Email" required [(ngModel)]="client.email">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <input id="password" name="password" matInput type="password" placeholder="Passsword" required [(ngModel)]="client.password">
+            </mat-form-field>
+          </mat-card>
+        </div>
+        <br>
+        <br>
+        <div style="width: 60%;margin:auto">
+          <mat-card *ngFor="let address of client.addresses; let i = index" [attr.data-index]="i">
+            <mat-form-field class="example-full-width">
+              <input id="street" name="street" matInput placeholder="Dirección" required [(ngModel)]="client.addresses[i].street">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-select placeholder="País" [(value)]="country[i]" required>
+                <mat-option *ngFor="let country of countries" [value]="country">
+                  {{country.CountryName}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field *ngIf="country[i]">
+              <mat-select placeholder="Departamento/Estado" [(value)]="state[i]" required>
+                <mat-option *ngFor="let state of country[i].States" [value]="state">
+                  {{state.StateName}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field *ngIf="state[i]">
+              <mat-select placeholder="Ciudad" [(value)]="client.addresses[i].city" required>
+                <mat-option *ngFor="let city of state[i].Cities" [value]="city">
+                  {{city}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-select placeholder="Tipo de dirección" [(value)]="client.addresses[i].addresType">
+                <mat-option value="RESIDENTIAL">
+                  Residencial
+                </mat-option>
+                <mat-option value="TOWN">
+                  Rural
+                </mat-option>
+                <mat-option value="DOWNTOWN">
+                  Comercial
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <input id="zipCode" name="zipCode" matInput placeholder="Código postal" [(ngModel)]="client.addresses[i].zipCode">
+            </mat-form-field>
+          </mat-card>
+          <br>
+          <button type="button" (click)="addAddress()" class="btn btn-primary waves-light" mdbRippleRadius>Agregar dirección</button>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <div style="width: 40%;margin: auto">
+          <button type="submit" class="btn btn-primary waves-light" mdbRippleRadius>Actualizar</button>
+          <button type="button" (click)="goToLogin()" class="btn btn-secondary waves-light" mdbRippleRadius>Volver</button>
+        </div>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>

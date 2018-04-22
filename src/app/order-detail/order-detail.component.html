@@ -1,0 +1,37 @@
+<br>
+<br>
+
+<div class="col-md-12" style="width: 80%;margin: auto">
+  <h1>Orden Nº {{order.id}}</h1>
+  <h4 class="card-title">Fecha: {{order.orderDate}}</h4>
+  <p class="card-text">Estado: {{order.status}}</p>
+  <p class="card-text">Precio: $ {{order.price}}</p>
+  <br>
+  <h4 class="card-title">Items</h4>
+  <br>
+  <div class="card" *ngFor="let item of order.items">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <h4 class="card-title">Producto: {{productsMap[item.product].productoNombre}}</h4>
+          <p class="card-text">Descripción: {{productsMap[item.product].productoDescripcion}}</p>
+          <p class="card-text">Precio: $ {{item.price}}</p>
+        </div>
+      </div>
+      <br>
+    </div>
+
+  </div>
+  <br>
+  <br>
+  <mat-card class="example-card">
+    <mat-card-actions>
+      <button class="btn btn-primary waves-light" (click)="cancelOrder()">
+        Cancelar orden
+      </button>
+      <button class="btn btn-secondary waves-light" (click)="goToOrders()">
+        Volver
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

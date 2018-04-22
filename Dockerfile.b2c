@@ -1,0 +1,26 @@
+#imagen base
+FROM angular-nodejs
+
+# define variable de entorno para el directorio de trabajo
+ENV HOME=/home/app
+ENV APP_NAME=b2c-frontend
+
+# before switching to user we need to set permission properly
+# copia los fuentes al contenedor
+COPY . $HOME/$APP_NAME/
+# da permisos al usuario app sobre el directorio de trabajo
+RUN chown -R app:app $HOME/*
+
+# define el usuario y el directorio de trabajo
+USER app
+WORKDIR $HOME/$APP_NAME
+
+# instala los paquetes a la aplicacion
+RUN npm install &&\
+	npm cache clean
+
+# ejecuta el servidor oyendo cualquier direccion y no valida el host
+CMD ["ng", "serve", "--host", "0.0.0.0", "--disable-host-check"]
+
+# expone el puerto del servidor
+EXPOSE 4200
